@@ -34,5 +34,4 @@ class AppConfig {
   static bool get isLocal => _environment == AppEnv.local;
   static bool get isStaging => _environment == AppEnv.staging;
   static bool get isProd => _environment == AppEnv.prod;
-  static String get googleMapsApiKey => const String.fromEnvironment('GOOGLE_MAPS_API_KEY');
 }
