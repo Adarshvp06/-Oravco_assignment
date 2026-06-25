@@ -53,7 +53,6 @@ class ProductListingItem extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Product Image
                 Expanded(
                   child: Stack(
                     children: [
@@ -141,7 +140,6 @@ class ProductListingItem extends ConsumerWidget {
                   ),
                 ),
                 gapSmall,
-                // Category Tag
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: paddingSmall + 2,
@@ -164,7 +162,6 @@ class ProductListingItem extends ConsumerWidget {
                   ),
                 ),
                 gapSmall,
-                // Product Title
                 Text(
                   product.title ?? '',
                   maxLines: 2,

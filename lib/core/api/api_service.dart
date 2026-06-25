@@ -29,13 +29,16 @@ final dioProvider = Provider<Dio>((ref) {
     ),
   );
 
-  dio.interceptors.add(
-    PrettyDioLogger(
-      requestHeader: true,
-      requestBody: true,
-      responseHeader: false,
-    ),
-  );
+
+  if (AppConfig.isLocal) {
+    dio.interceptors.add(
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseHeader: false,
+      ),
+    );
+  }
 
   return dio;
 });

@@ -22,8 +22,8 @@ class AuthenticationScreen extends ConsumerStatefulWidget {
 
 class _AuthenticationScreenState extends ConsumerState<AuthenticationScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController(text: "test@oravco.com");
-  final _passwordController = TextEditingController(text: "test@oravco.com");
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   void dispose() {

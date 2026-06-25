@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/legacy.dart';
 
 import '../../../core/constants/constants.dart';
 import '../../../core/exception/custom_exception.dart';
+import '../../../core/services/local_storage_services.dart';
 
 class AuthViewmodel extends AsyncNotifier<void> {
   @override
@@ -21,10 +22,11 @@ class AuthViewmodel extends AsyncNotifier<void> {
           type: ExceptionType.validation,
         );
       }
+      
+      // Save login state to local storage
+      await ref.read(storageServiceProvider).setValue(key: 'is_logged_in', value: 'true');
     });
   }
-
-
 }
 
 final passwordVisibilityProvider = StateProvider.autoDispose<bool>((ref) {

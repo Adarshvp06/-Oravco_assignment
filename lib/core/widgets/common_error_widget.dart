@@ -80,7 +80,7 @@ class CommonErrorWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           style: context.textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color: context.textSecondary,
           ),
         ),
         gapSmall,
@@ -102,7 +102,7 @@ class CommonErrorWidget extends StatelessWidget {
             text: 'Retry',
             onPressed: onRetry!,
           ),
-        ] 
+        ],
       ],
     );
   }

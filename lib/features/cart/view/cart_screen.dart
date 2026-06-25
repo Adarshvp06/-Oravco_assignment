@@ -61,7 +61,6 @@ class CartScreen extends ConsumerWidget {
                         ),
                         child: Row(
                           children: [
-                            // Product Image Container
                             Container(
                               width: 80.w,
                               height: 80.w,
@@ -91,7 +90,6 @@ class CartScreen extends ConsumerWidget {
                               ),
                             ),
                             gapLarge,
-                            // Info Column
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,7 +112,6 @@ class CartScreen extends ConsumerWidget {
                                         ),
                                   ),
                                   gapSmall,
-                                  // Quantity Selector
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -198,7 +195,6 @@ class CartScreen extends ConsumerWidget {
                     },
                   ),
                 ),
-                // Sticky Bottom Bar
                 Container(
                   padding: EdgeInsets.only(
                     left: paddingLarge,

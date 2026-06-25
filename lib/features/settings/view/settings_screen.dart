@@ -10,6 +10,7 @@ import 'package:oravco_assignment/core/widgets/common_appbar.dart';
 import 'package:oravco_assignment/core/widgets/common_botton.dart';
 import 'package:oravco_assignment/features/auth/view_model/auth_viewmodel.dart';
 import 'package:oravco_assignment/core/utils/snackbar_utils.dart';
+import 'package:oravco_assignment/core/services/local_storage_services.dart';
 
 import '../widgets/settings_tile.dart';
 import '../widgets/themeoption_card.dart';
@@ -35,7 +36,6 @@ class SettingsScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Theme Mode Section Header
             Text(
               'Appearance',
               style: context.textTheme.titleMedium?.copyWith(
@@ -45,7 +45,6 @@ class SettingsScreen extends ConsumerWidget {
             ),
             gapLarge,
 
-            // Theme Mode Segmented Control Cards
             Row(
               children: [
                 Expanded(
@@ -91,7 +90,6 @@ class SettingsScreen extends ConsumerWidget {
             ),
             gapXL,
 
-            // Preferences Section Header
             Text(
               'Preferences',
               style: context.textTheme.titleMedium?.copyWith(
@@ -101,7 +99,6 @@ class SettingsScreen extends ConsumerWidget {
             ),
             gapLarge,
 
-            // Dummy/Mock preference cards
             SettingsTile(
               icon: Icons.notifications_none_rounded,
               title: 'Notifications',
@@ -121,7 +118,6 @@ class SettingsScreen extends ConsumerWidget {
             ),
             gapXXL,
 
-            // Logout Button
             CommonButton(
               buttonLoading: ref.watch(authViewmodelProvider).isLoading,
               text: 'Log Out',
@@ -130,7 +126,8 @@ class SettingsScreen extends ConsumerWidget {
                 alpha: opacityStrong,
               ),
               textColor: AppColors.error,
-              onPressed: () {
+              onPressed: () async {
+                await ref.read(storageServiceProvider).setValue(key: 'is_logged_in', value: 'false');
                 showSuccessMessage('Logged out successfully');
                 if (context.mounted) {
                   context.goNamed(RouteNames.login);

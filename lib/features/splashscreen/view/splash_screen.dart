@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:oravco_assignment/core/constants/app_colors.dart';
 import 'package:oravco_assignment/core/constants/constants.dart';
 import 'package:oravco_assignment/core/routes/route_names.dart';
+import 'package:oravco_assignment/core/services/local_storage_services.dart';
 import 'package:oravco_assignment/gen/assets.gen.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -18,13 +19,19 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateToLogin();
+    _navigateToNextScreen();
   }
 
-  Future<void> _navigateToLogin() async {
+  Future<void> _navigateToNextScreen() async {
     await Future.delayed(splashScreenDelay);
     if (!mounted) return;
-    context.goNamed(RouteNames.login);
+    
+    final isLoggedIn = ref.read(storageServiceProvider).getValueSync(key: 'is_logged_in') == 'true';
+    if (isLoggedIn) {
+      context.goNamed(RouteNames.home);
+    } else {
+      context.goNamed(RouteNames.login);
+    }
   }
 
   @override

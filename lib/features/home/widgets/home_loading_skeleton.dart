@@ -12,7 +12,6 @@ class ProductListingShimmer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Category chips skeleton
         SizedBox(
           height: 38.w,
           child: CommonShimmer(
@@ -36,12 +35,10 @@ class ProductListingShimmer extends StatelessWidget {
           ),
         ),
         gapLarge,
-        // Product list skeleton
         Expanded(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              // Banner skeleton
               CommonShimmer(
                 child: Container(
                   height: 120.w,
@@ -53,7 +50,6 @@ class ProductListingShimmer extends StatelessWidget {
                 ),
               ),
               gapLarge,
-              // Grouped skeleton items
               ...List.generate(2, (index) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

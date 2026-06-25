@@ -97,7 +97,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Product Image
                     Center(
                       child: Hero(
                         tag: 'product-image-${product.id}-$heroTagSuffix',
@@ -130,7 +129,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                     ),
                     gapXL,
 
-                    // Category & Rating
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -183,7 +181,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                     ),
                     gapLarge,
 
-                    // Title
                     Text(
                       product.title ?? '',
                       style: theme.textTheme.headlineMedium?.copyWith(
@@ -193,7 +190,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                     ),
                     gapLarge,
 
-                    // Description
                     Text(
                       'Description',
                       style: theme.textTheme.titleMedium?.copyWith(
@@ -210,13 +206,12 @@ class ProductDetailsScreen extends ConsumerWidget {
                         height: 1.5,
                       ),
                     ),
-                    gapXXL, // Provide scroll spacing for bottom bar
+                    gapXXL,
                   ],
                 ),
               ),
             ),
 
-            // Sticky Bottom Bar
             Container(
               padding: EdgeInsets.only(
                 left: paddingLarge,
@@ -232,7 +227,6 @@ class ProductDetailsScreen extends ConsumerWidget {
               ),
               child: Row(
                 children: [
-                  // Quantity and Price column
                   SizedBox(
                     width: 120.w,
                     child: Column(
@@ -262,7 +256,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                           ),
                         ),
                         gapSmall,
-                        // Quantity selector
                         Container(
                           decoration: BoxDecoration(
                             color: theme.brightness == Brightness.light
@@ -316,7 +309,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                     ),
                   ),
                   gapLarge,
-                  // Add to Cart Button
                   Expanded(
                     child: CommonButton(
                       buttonLoading: false,
