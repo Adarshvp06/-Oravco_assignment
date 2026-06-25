@@ -31,8 +31,7 @@ class ThemeOptionCard extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(defaultBorderRadius),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+        child: Container(
           padding: const EdgeInsets.symmetric(vertical: paddingLarge),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(defaultBorderRadius),

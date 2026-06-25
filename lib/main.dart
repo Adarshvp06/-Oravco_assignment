@@ -24,18 +24,22 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
-    final themeMode = ref.watch(themeProvider);
 
     return ToastificationWrapper(
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         builder: (context, child) {
-          return MaterialApp.router(
-            theme: AppTheme.light,
-            darkTheme: AppTheme.dark,
-            themeMode: themeMode,
-            debugShowCheckedModeBanner: false,
-            routerConfig: router,
+          return Consumer(
+            builder: (context, ref, child) {
+              final themeMode = ref.watch(themeProvider);
+              return MaterialApp.router(
+                theme: AppTheme.light,
+                darkTheme: AppTheme.dark,
+                themeMode: themeMode,
+                debugShowCheckedModeBanner: false,
+                routerConfig: router,
+              );
+            },
           );
         },
       ),
